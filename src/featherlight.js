@@ -2,7 +2,7 @@
  * Featherlight - ultra slim jQuery lightbox
  * Version 1.7.0 - http://noelboss.github.io/featherlight/
  *
- * Copyright 2016, Noël Raoul Bossart (http://www.noelboss.com)
+ * Copyright 2017, Noël Raoul Bossart (http://www.noelboss.com)
  * MIT Licensed.
 **/
 (function($) {
@@ -325,12 +325,12 @@
 				/* Calculate the worst ratio so that dimensions fit */
 				 /* Note: -1 to avoid rounding errors */
 				var ratio = Math.max(
-					w  / (parseInt(this.$content.parent().css('width'),10)-1),
-					h / (parseInt(this.$content.parent().css('height'),10)-1));
+					w  / (parseInt(this.$content.parent().width(),10)-1),
+					h / (parseInt(this.$content.parent().height(),10)-1));
 				/* Resize content */
 				if (ratio > 1) {
 					ratio = h / Math.floor(h / ratio); /* Round ratio down so height calc works */
-					this.$content.css('width', '' + w / ratio + 'px').css('height', '' + h / ratio + 'px');
+					this.$content.width(w / ratio).height(h / ratio);
 				}
 			}
 		},
